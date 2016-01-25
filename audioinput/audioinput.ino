@@ -6,7 +6,7 @@ int dataPin = 10;
 byte i;
 byte j;
 
-const int numReadings = 128;
+const int numReadings = 100;
 
 int readings[numReadings];      // the readings from the analog input
 int index = 0;                  // the index of the current reading
@@ -18,29 +18,22 @@ void setup() {
   pinMode(latchPin, OUTPUT);
   pinMode(clockPin, OUTPUT);
   pinMode(dataPin, OUTPUT);
-  pinMode(A1, INPUT);
-  pinMode(A5, INPUT);
+  pinMode(A0, INPUT);
   
   for (int thisReading = 0; thisReading < numReadings; thisReading++)
     readings[thisReading] = 0; 
 }
 
 int previousAverage = 0;
-int maxFalloffUnits = 10;
-int potValue = 0;
+int maxFalloffUnits = 1;
 
 void loop() {
   
-  //sendPercentValue(10);
-  
-  //return;
 
   // subtract the last reading:
   total= total - readings[index];         
   // read from the sensor:  
-  readings[index] = abs(analogRead(A1)+0); 
- 
-  
+  readings[index] = analogRead(A0); 
   // add the reading to the total:
   total= total + readings[index];       
   // advance to the next position in the array:  
@@ -54,29 +47,16 @@ void loop() {
   // calculate the average:
   average = total / numReadings;
 
-  if (average < previousAverage && previousAverage - average >  maxFalloffUnits ){
-    average = previousAverage - 1;
-    //delay(1);
-  }
-  
-  if (average > previousAverage && average - previousAverage >  maxFalloffUnits*4 ){
-    average = previousAverage + 10;
-    //delay(1);
+  if (average < previousAverage && previousAverage - average){
+    average = previousAverage - maxFalloffUnits;
+    //delay(20);
   }
   
   previousAverage = average;  
   
-  potValue = analogRead(A5);
+  //int linearized = (int)((log((float)average) / log(10)) * 255);
   
-  if (average > potValue) {
-    average = potValue;
-    }
-    
-    if (average < -potValue) {
-      average = -potValue;
-      }
-  
-  sendPercentValue(map(average, -potValue, potValue, 0, 100));
+  sendPercentValue(map(average, 30, 60, -20, 110));
   
 }
 
@@ -85,15 +65,15 @@ byte ledData[] = {0,1,2,4,8,16,32,64,128};
 
 void sendPercentValue(double percent){
   
-  if (percent > 99){
-    percent = 99;
+  if (percent > 100){
+    percent = 100;
   }
   
-  if (percent < 1){
-    percent = 1;  
+  if (percent < 0){
+    percent = 0;  
   }
   
-  byte value =  (9 *percent) /100 ;
+  byte value = 9 * (percent/100);
   
   digitalWrite(latchPin, LOW);
   
