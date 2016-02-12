@@ -1,30 +1,3 @@
-/* 
- * //////////////////////////////////////////////////
- * //making sense of the Parallax PIR sensor's output
- * //////////////////////////////////////////////////
- *
- * Switches a LED according to the state of the sensors output pin.
- * Determines the beginning and end of continuous motion sequences.
- *
- * @author: Kristian Gohlke / krigoo (_) gmail (_) com / http://krx.at
- * @date:   3. September 2006 
- *
- * kr1 (cleft) 2006 
- * released under a creative commons "Attribution-NonCommercial-ShareAlike 2.0" license
- * http://creativecommons.org/licenses/by-nc-sa/2.0/de/
- *
- *
- * The Parallax PIR Sensor is an easy to use digital infrared motion sensor module. 
- * (http://www.parallax.com/detail.asp?product_id=555-28027)
- *
- * The sensor's output pin goes to HIGH if motion is present.
- * However, even if motion is present it goes to LOW from time to time, 
- * which might give the impression no motion is present. 
- * This program deals with this issue by ignoring LOW-phases shorter than a given time, 
- * assuming continuous motion is present during these phases.
- *  
- */
-
 #include <LiquidCrystal.h>
 
 LiquidCrystal lcd(12,11,5,4,3,2);
@@ -55,6 +28,7 @@ void setup(){
   pinMode(pirPin, INPUT);
   pinMode(ledPin, OUTPUT);
   digitalWrite(pirPin, LOW);
+  VU_setup();
   
   lcd.begin(16,2);
   print("Kev Rules!!!", "Starting Arduino");
@@ -64,9 +38,11 @@ void setup(){
     for(int i = 0; i < calibrationTime; i++){
       print("calibrating... ", String(i));
       delay(1000);
+      VU_sendPercentValue((i+1)*10);
       }
     print("SENSOR ACTIVE", "");
     delay(50);
+    VU_sendPercentValue(0);
   }
 
 ////////////////////////////
@@ -79,6 +55,7 @@ void loop(){
          //makes sure we wait for a transition to LOW before any further output is made:
          lockLow = false;            
          Serial.println("---");
+         VU_sendPercentValue(0);
          print("motion detected at ", String(millis()/1000));
          Serial.print(millis()/1000);
          Serial.println(" sec"); 
@@ -89,13 +66,15 @@ void loop(){
 
      if(digitalRead(pirPin) == LOW){       
        digitalWrite(ledPin, LOW);  //the led visualizes the sensors output pin state
+        long millisK = millis();
 
        if(takeLowTime){
-        lowIn = millis();          //save the time of the transition from high to LOW
+        lowIn = millisK;          //save the time of the transition from high to LOW
         takeLowTime = false;       //make sure this is only done at the start of a LOW phase
         }
        //if the sensor is low for more than the given pause, 
        //we assume that no more motion is going to happen
+       
        if(!lockLow && millis() - lowIn > pause){  
            //makes sure this block of code is only executed again after 
            //a new motion sequence has been detected
@@ -106,6 +85,14 @@ void loop(){
            delay(50);
            }
        }
+       
+       
+       double percentValue = ((double)(millis() - lowIn)) / (double)pause * 100.0;
+       percentValue = percentValue > 99 ? 99 : percentValue;
+       percentValue = digitalRead(pirPin) == HIGH ? 0 : percentValue;
+       
+       VU_sendPercentValue(percentValue);
+       
   }
   
 void print(String  text, String text2){
@@ -115,3 +102,45 @@ void print(String  text, String text2){
   lcd.setCursor(0,2);
   lcd.print(text2);
   }
+  
+  
+  
+  
+int VU_clockPin = 6;
+int  VU_latchPin = 8;
+int VU_dataPin = 7;
+   
+void VU_setup(){
+    pinMode(VU_latchPin, OUTPUT);
+  pinMode(VU_clockPin, OUTPUT);
+  pinMode(VU_dataPin, OUTPUT);
+  VU_sendPercentValue(0);
+  }
+  
+  //storage for led states, 4 bytes
+byte VU_ledData[] = {0,1,2,4,8,16,32,64,128};
+
+void VU_sendPercentValue(double percent){
+  
+  Serial.println(percent);
+  if (percent > 100){
+    percent = 100;
+  }
+  
+  if (percent < 0){
+    percent = 0;  
+  }
+  
+  byte value = 9.0 * (percent/100.0);
+  
+  digitalWrite(VU_latchPin, LOW);
+  
+  for (int j=0;j<8;j++){
+    digitalWrite(VU_clockPin,LOW);
+    digitalWrite(VU_dataPin,((VU_ledData[value]>>j)));
+    digitalWrite(VU_clockPin,HIGH);
+  }
+  
+  digitalWrite(VU_latchPin, HIGH);
+}
+
