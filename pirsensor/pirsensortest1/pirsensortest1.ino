@@ -105,42 +105,34 @@ void print(String  text, String text2){
   
   
   
-  
+// Orange, 1ere pin du chip
 int VU_clockPin = 6;
+// Vert, 3e pin du chip
 int  VU_latchPin = 8;
+// Blanc, 2e pin du chip
 int VU_dataPin = 7;
    
+  //storage for led states, 4 bytes
+byte VU_ledData[] = {0,1,2,4,8,16,32,64,128};
+byte VU_value = 0;
+   
 void VU_setup(){
-    pinMode(VU_latchPin, OUTPUT);
+  pinMode(VU_latchPin, OUTPUT);
   pinMode(VU_clockPin, OUTPUT);
   pinMode(VU_dataPin, OUTPUT);
   VU_sendPercentValue(0);
-  }
-  
-  //storage for led states, 4 bytes
-byte VU_ledData[] = {0,1,2,4,8,16,32,64,128};
+}
 
-void VU_sendPercentValue(double percent){
-  
-  Serial.println(percent);
-  if (percent > 100){
-    percent = 100;
-  }
-  
-  if (percent < 0){
-    percent = 0;  
-  }
-  
-  byte value = 9.0 * (percent/100.0);
-  
-  digitalWrite(VU_latchPin, LOW);
-  
+void VU_sendPercentValue(double percent){  
+  if (percent > 100){ percent = 100; } 
+  if (percent < 0){ percent = 0; }  
+  VU_value = 10.0 * (percent/100.0);  
+  digitalWrite(VU_latchPin, LOW);  
   for (int j=0;j<8;j++){
     digitalWrite(VU_clockPin,LOW);
-    digitalWrite(VU_dataPin,((VU_ledData[value]>>j)));
+    digitalWrite(VU_dataPin,((VU_ledData[VU_value]>>j)));
     digitalWrite(VU_clockPin,HIGH);
-  }
-  
+  }  
   digitalWrite(VU_latchPin, HIGH);
 }
 
