@@ -12,14 +12,14 @@ void setup(){
 void loop(){
   //pir.loop();
   
-  for (int i=0.0; i<100.0; i+=1.0){
-    vuMeter.setPercentValue(i);
-    delay(1);  
+  for (int i=0.0; i<256.0; i+=2.0){
+    vuMeter.setPattern(i);
+    delay(20);  
   }
   
-  for (int i=100.0; i>0.0; i-=1.0){
-    vuMeter.setPercentValue(i);
-    delay(5);  
+  for (int i=128.0; i>0.0; i-=1.0){
+    vuMeter.setPattern(i);
+    delay(50);  
   }
   
   vuMeter.setPattern(B01100110);
