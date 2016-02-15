@@ -12,6 +12,7 @@ class OutputMultiplex
     OutputMultiplex(int pin1, int pin2, int pin3, int nbLeds);
 	void setup();
 	void setPercentValue(float percent);
+	void setPattern(unsigned long pattern);
 	void setLedsValues(int &values);
 	void setLedValue(int led, int value);
   private:
@@ -25,7 +26,8 @@ class OutputMultiplex
 	long unsigned int VU_ledData[9] = {0,1,2,4,8,16,32,64,128};
 	//storage for led values
 	long unsigned int VU_values[];
-	
+	//nb of leds used
+	int _nbLeds;
 	
 };
 

@@ -4,8 +4,9 @@
 OutputMultiplex::OutputMultiplex(int pin1, int pin2, int pin3, int nbLeds)
 {
 	VU_clockPin = pin1;
-	VU_dataPin = pin2;
-	VU_latchPin = pin3;
+	VU_dataPin = pin3;
+	VU_latchPin = pin2;
+	_nbLeds = nbLeds;
 	//VU_ledData = (long unsigned int*)malloc(sizeof(long unsigned int) * nbLeds);
 	//VU_values = (long unsigned int*)malloc(sizeof(long unsigned int) * nbLeds);
 	
@@ -21,10 +22,10 @@ void OutputMultiplex::setPercentValue(float percent){
 	if (percent > 100){ percent = 100; } 
 	if (percent < 0){ percent = 0; }  
 	
-	int value = 9.0 * (percent/100.0);  
+	byte value =  (9 *percent) /100 ;
 	digitalWrite(VU_latchPin, LOW);  
 	
-	for (int j=0;j<8;j++){
+	for (int j=0;j<_nbLeds;j++){
 		digitalWrite(VU_clockPin,LOW);
 		digitalWrite(VU_dataPin,((VU_ledData[value]>>j)));
 		digitalWrite(VU_clockPin,HIGH);
@@ -32,6 +33,20 @@ void OutputMultiplex::setPercentValue(float percent){
 	
 	digitalWrite(VU_latchPin, HIGH);
 }
+
+void OutputMultiplex::setPattern(unsigned long pattern){
+	
+	digitalWrite(VU_latchPin, LOW);  
+	
+	for (int j=0;j<_nbLeds;j++){
+		digitalWrite(VU_clockPin,LOW);
+		digitalWrite(VU_dataPin,((pattern>>j & 1)));
+		digitalWrite(VU_clockPin,HIGH);
+	}  
+	
+	digitalWrite(VU_latchPin, HIGH);
+}
+
 
 void OutputMultiplex::setup()
 {

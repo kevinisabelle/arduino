@@ -1,6 +1,6 @@
-int clockPin = 8;
-int  latchPin = 9;
-int dataPin = 10;
+int clockPin = 9;
+int  latchPin = 10;
+int dataPin = 11;
 
 //looping variables
 byte i;
