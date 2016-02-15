@@ -1,5 +1,5 @@
 /*
-  SensorPir.h - Code for mangaging a PIR sensor
+  OutputMultiplex.h - Code for mangaging a MAX74HC chip with leds as a VU meter.
 */
 #ifndef OutputMultiplex_h
 #define OutputMultiplex_h
@@ -13,7 +13,6 @@ class OutputMultiplex
 	void setup();
 	void setPercentValue(float percent);
 	void setPattern(unsigned long pattern);
-	void setLedsValues(int &values);
 	void setLedValue(int led, int value);
   private:
 	// Orange, 1ere pin du chip

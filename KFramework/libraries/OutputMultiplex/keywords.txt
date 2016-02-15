@@ -1,0 +1,22 @@
+#######################################
+# Syntax Coloring Map For DmxSimple
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+OutputMultiplex	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+setPercentValue	KEYWORD2
+setPattern	KEYWORD2
+setLedValue	KEYWORD2
+  
+#######################################
+# Constants (LITERAL1)
+#######################################
+
