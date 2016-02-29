@@ -36,8 +36,6 @@
           <in>SensorDistance.cpp</in>
           <in>SensorDistance.h</in>
         </df>
-        <df name="SensorLight">
-        </df>
         <df name="SensorPiezo">
           <in>SensorPiezo.cpp</in>
           <in>SensorPiezo.h</in>
