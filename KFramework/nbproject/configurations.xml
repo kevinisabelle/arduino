@@ -58,6 +58,14 @@
           <preBuildCommand></preBuildCommand>
         </preBuild>
       </makefileType>
+      <folder path="0">
+        <ccTool>
+          <incDir>
+            <pElem>C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino</pElem>
+            <pElem>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
       <item path="libraries/CommsDmx/CommsDmx.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="libraries/LedControl/src/LedControl.cpp"

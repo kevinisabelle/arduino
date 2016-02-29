@@ -15,10 +15,9 @@
 #define DMX_SIZE 512
 #endif
 
-class CommsDmx
-{
+class CommsDmx {
   public:
-	void setup(uint8_t pin, int maxChannels);
+    void setup(uint8_t pin, int maxChannels);
     void maxChannel(int);
     void write(int, uint8_t);
     void usePin(uint8_t);

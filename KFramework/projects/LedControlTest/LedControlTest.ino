@@ -21,6 +21,7 @@ unsigned long delaytime = 100;
 int inByte = 0; 
 char buf[32];
 
+
 int xPin = A1;
 int yPin = A0;
 int buttonPin = 7;
@@ -47,31 +48,16 @@ void setup() {
   /* and clear the display */
   lc.clearDisplay(0);
   lc.setScanLimit(0, 7);
-  //Serial.begin(9600);
-  //establishContact();
-  
-  
-  
-}
 
+}
   
 void loop() {
 
-  //Serial.println("BUFF");
-  //GetString( buf, sizeof(buf) );
-  //Serial.println( buf );
-  
-  //countDown();
-  
   xPosition = map(analogRead(xPin), 0, 1000, 0, 7);
   yPosition = map(analogRead(yPin), 0, 1000, 0, 7);
   buttonState = digitalRead(buttonPin);
   
   setPosition(xPosition, yPosition, buttonState);
-  
- 
-  
-  
 }
 
 void setPosition(int x, int y, int buttonState) {
@@ -79,8 +65,6 @@ void setPosition(int x, int y, int buttonState) {
    for (int i=0; i<8; i++){
     for (int j=0; j<8; j++){
       lc.setLed(0, i, j, x == i && y == j ? buttonState == 1 : buttonState == 0);
-      //delay(i % 2 == 0 ? 75 : 15 );
     }
   }
-
 }

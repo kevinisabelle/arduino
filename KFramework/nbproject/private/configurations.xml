@@ -11,15 +11,16 @@
         </df>
         <df name="CommsWifi">
         </df>
-        <df name="InputJoystick">
-        </df>
         <df name="LedControl">
           <df name="examples">
             <df name="LCDemo7Segment">
+              <in>LCDemo7Segment.ino</in>
             </df>
             <df name="LCDemoCascadedDevices">
+              <in>LCDemoCascadedDevices.ino</in>
             </df>
             <df name="LCDemoMatrix">
+              <in>LCDemoMatrix.ino</in>
             </df>
           </df>
           <df name="src">
@@ -48,16 +49,25 @@
       </df>
       <df name="projects">
         <df name="DeskMultibandVUMeter">
+          <in>DeskMultibandVUMeter.ino</in>
         </df>
         <df name="DeskStereoVUMeter">
+          <in>DesktopStereoVUMeter.ino</in>
         </df>
         <df name="LedControlTest">
+          <in>LedControlTest.ino</in>
         </df>
         <df name="Mp3Doorbell">
+          <in>Mp3Doorbell.ino</in>
         </df>
         <df name="PirToCloud">
+          <in>PirToCloud.ino</in>
+        </df>
+        <df name="VaccumRobot">
+          <in>VaccumRobot.ino</in>
         </df>
       </df>
+      <in>KFramework.ino</in>
     </df>
   </logicalFolder>
   <projectmakefile></projectmakefile>
