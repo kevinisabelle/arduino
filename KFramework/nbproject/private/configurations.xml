@@ -10,6 +10,8 @@
           <in>CommsDmx.h</in>
         </df>
         <df name="CommsWifi">
+          <in>CommsWifi.cpp</in>
+          <in>CommsWifi.h</in>
         </df>
         <df name="LedControl">
           <df name="examples">

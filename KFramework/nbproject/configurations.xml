@@ -6,6 +6,10 @@
         <df name="CommsDmx">
           <in>CommsDmx.cpp</in>
         </df>
+        <df name="CommsWifi">
+          <in>CommsWifi.cpp</in>
+          <in>CommsWifi.h</in>
+        </df>
         <df name="LedControl">
           <df name="src">
             <in>LedControl.cpp</in>
@@ -67,6 +71,10 @@
         </ccTool>
       </folder>
       <item path="libraries/CommsDmx/CommsDmx.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="libraries/CommsWifi/CommsWifi.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="libraries/CommsWifi/CommsWifi.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="libraries/LedControl/src/LedControl.cpp"
             ex="false"
