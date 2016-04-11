@@ -5,6 +5,22 @@
       <df name="data">
       </df>
       <df name="libraries">
+        <df name="Adafruit_NeoPixel">
+          <df name="examples">
+            <df name="buttoncycler">
+              <in>buttoncycler.ino</in>
+            </df>
+            <df name="simple">
+              <in>simple.ino</in>
+            </df>
+            <df name="strandtest">
+              <in>strandtest.ino</in>
+            </df>
+          </df>
+          <in>Adafruit_NeoPixel.cpp</in>
+          <in>Adafruit_NeoPixel.h</in>
+          <in>esp8266.c</in>
+        </df>
         <df name="CommsDmx">
           <in>CommsDmx.cpp</in>
           <in>CommsDmx.h</in>
@@ -46,6 +62,10 @@
           <in>SensorPir.cpp</in>
           <in>SensorPir.h</in>
         </df>
+        <df name="VirtualWire">
+          <in>VirtualWire.cpp</in>
+          <in>VirtualWire.h</in>
+        </df>
       </df>
       <df name="projects">
         <df name="DeskMultibandVUMeter">
@@ -60,12 +80,21 @@
         <df name="Mp3Doorbell">
           <in>Mp3Doorbell.ino</in>
         </df>
+        <df name="PiezoDrumLED">
+          <in>PiezoDrumLED.ino</in>
+        </df>
         <df name="PirToCloud">
           <in>PirToCloud.ino</in>
         </df>
         <df name="VaccumRobot">
           <in>VaccumRobot.ino</in>
         </df>
+      </df>
+      <df name="sketch_apr09a">
+        <df name="sketch_apr09b_receive">
+          <in>sketch_apr09b_receive.ino</in>
+        </df>
+        <in>sketch_apr09a.ino</in>
       </df>
       <in>KFramework.ino</in>
     </df>

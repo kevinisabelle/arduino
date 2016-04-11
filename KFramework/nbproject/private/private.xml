@@ -10,16 +10,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Dev/projects/ArduinoGit/KFramework/KFramework.ino</file>
+            <file>file:/C:/Dev/projects/ArduinoGit/KFramework/projects/PiezoDrumLED/PiezoDrumLED.ino</file>
             <file>file:/C:/Dev/projects/ArduinoGit/KFramework/data/readme.txt</file>
             <file>file:/C:/Dev/projects/ArduinoGit/KFramework/libraries/SensorPir/SensorPir.cpp</file>
+            <file>file:/C:/Dev/projects/ArduinoGit/KFramework/libraries/CommsWifi/CommsWifi.h</file>
             <file>file:/C:/Dev/projects/ArduinoGit/KFramework/libraries/SensorDistance/SensorDistance.cpp</file>
             <file>file:/C:/Dev/projects/ArduinoGit/KFramework/libraries/CommsDmx/keywords.txt</file>
-            <file>file:/C:/Dev/projects/ArduinoGit/KFramework/projects/PirToCloud/PirToCloud.ino</file>
+            <file>file:/C:/Dev/projects/ArduinoGit/KFramework/libraries/OutputMultiplex/OutputMultiplex.h</file>
             <file>file:/C:/Dev/projects/ArduinoGit/KFramework/projects/DeskMultibandVUMeter/DeskMultibandVUMeter.ino</file>
-            <file>file:/C:/Dev/projects/ArduinoGit/KFramework/projects/LedControlTest/LedControlTest.ino</file>
-            <file>file:/C:/Dev/projects/ArduinoGit/KFramework/projects/DeskStereoVUMeter/DesktopStereoVUMeter.ino</file>
             <file>file:/C:/Dev/projects/ArduinoGit/KFramework/libraries/CommsDmx/CommsDmx.cpp</file>
+            <file>file:/C:/Dev/projects/ArduinoGit/KFramework/KFramework.ino</file>
+            <file>file:/C:/Dev/projects/ArduinoGit/KFramework/libraries/OutputMultiplex/keywords.txt</file>
+            <file>file:/C:/Dev/projects/ArduinoGit/KFramework/libraries/LedControl/src/LedControl.h</file>
+            <file>file:/C:/Dev/projects/ArduinoGit/KFramework/projects/PirToCloud/PirToCloud.ino</file>
+            <file>file:/C:/Dev/projects/ArduinoGit/KFramework/projects/LedControlTest/LedControlTest.ino</file>
+            <file>file:/C:/Dev/projects/ArduinoGit/KFramework/libraries/SensorPiezo/SensorPiezo.cpp</file>
+            <file>file:/C:/Dev/projects/ArduinoGit/KFramework/projects/DeskStereoVUMeter/DesktopStereoVUMeter.ino</file>
+            <file>file:/C:/Dev/projects/ArduinoGit/KFramework/libraries/CommsWifi/CommsWifi.cpp</file>
             <file>file:/C:/Dev/projects/ArduinoGit/KFramework/libraries/CommsDmx/CommsDmx.h</file>
         </group>
     </open-files>
