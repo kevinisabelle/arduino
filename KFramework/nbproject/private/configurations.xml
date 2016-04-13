@@ -86,15 +86,15 @@
         <df name="PirToCloud">
           <in>PirToCloud.ino</in>
         </df>
+        <df name="Transeiver433Mhz">
+          <df name="sketch_apr09b_receive">
+            <in>sketch_apr09b_receive.ino</in>
+          </df>
+          <in>sketch_apr09a.ino</in>
+        </df>
         <df name="VaccumRobot">
           <in>VaccumRobot.ino</in>
         </df>
-      </df>
-      <df name="sketch_apr09a">
-        <df name="sketch_apr09b_receive">
-          <in>sketch_apr09b_receive.ino</in>
-        </df>
-        <in>sketch_apr09a.ino</in>
       </df>
       <in>KFramework.ino</in>
     </df>

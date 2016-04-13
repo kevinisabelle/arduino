@@ -71,22 +71,22 @@ void loop() {
     value1 = sensor1;  
   }
   
-  setLevel(strip1.Color(map(value1, 0, 1053, 0, 255), 0, 255 - map(value1, 0, 1053, 0, 255)), value1);
+  setLevel(strip1.Color(map(value1, 0, 1053, 0, 255), 0, 255 - map(value1, 0, 1053, 0, 255)), value1, strip1);
   
 }
  
-static void setLevel(uint32_t c, int value) {
+static void setLevel(uint32_t c, int value, Adafruit_NeoPixel strip) {
 
-  for(uint16_t i=0; i<strip1.numPixels()+4; i++) {
-      strip1.setPixelColor(i  , strip1.Color(0, 0, 0)); // Draw new pixel
+  for(uint16_t i=0; i<strip.numPixels()+4; i++) {
+      strip.setPixelColor(i  , strip.Color(0, 0, 0)); // Draw new pixel
   }
   
-  int maxLed = map(value,-1, 1053,  0, strip1.numPixels()+2);
+  int maxLed = map(value,-1, 1053,  0, strip.numPixels()+2);
   
   for(uint16_t i=0; i<maxLed; i++) {  
-      strip1.setPixelColor(i  , c); // Draw new pixel
+      strip.setPixelColor(i  , c); // Draw new pixel
   }
   
-  strip1.show();
+  strip.show();
   
 }
