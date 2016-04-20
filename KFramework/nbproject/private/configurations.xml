@@ -68,6 +68,18 @@
         </df>
       </df>
       <df name="projects">
+        <df name="Arduinoscope">
+          <df name="processing">
+            <df name="processingCode">
+              <df name="data">
+                <in>oscilloscope.c</in>
+              </df>
+            </df>
+            <in>oscilloscope.c</in>
+          </df>
+          <in>Arduinoscope.ino</in>
+          <in>firmataScope.ino</in>
+        </df>
         <df name="DeskMultibandVUMeter">
           <in>DeskMultibandVUMeter.ino</in>
         </df>

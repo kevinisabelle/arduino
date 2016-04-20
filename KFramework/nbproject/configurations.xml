@@ -28,6 +28,11 @@
           <in>SensorPir.cpp</in>
         </df>
       </df>
+      <df name="projects">
+        <df name="Arduinoscope">
+          <in>Arduinoscope.ino</in>
+        </df>
+      </df>
     </df>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -97,6 +102,11 @@
             flavor2="0">
       </item>
       <item path="libraries/SensorPir/SensorPir.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="projects/Arduinoscope/Arduinoscope.ino"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
     </conf>
   </confs>
