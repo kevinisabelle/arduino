@@ -29,6 +29,23 @@
           <in>CommsWifi.cpp</in>
           <in>CommsWifi.h</in>
         </df>
+        <df name="DMXSerial">
+          <df name="examples">
+            <df name="DMXSerialFlow">
+              <in>DMXSerialFlow.ino</in>
+            </df>
+            <df name="DmxSerialRecv">
+              <in>DmxSerialRecv.ino</in>
+            </df>
+            <df name="DmxSerialSend">
+              <in>DmxSerialSend.ino</in>
+            </df>
+          </df>
+          <df name="src">
+            <in>DMXSerial.cpp</in>
+            <in>DMXSerial.h</in>
+          </df>
+        </df>
         <df name="LedControl">
           <df name="examples">
             <df name="LCDemo7Segment">
@@ -85,6 +102,9 @@
         </df>
         <df name="DeskStereoVUMeter">
           <in>DesktopStereoVUMeter.ino</in>
+        </df>
+        <df name="DmxReceiver">
+          <in>DmxReceiver.ino</in>
         </df>
         <df name="LedControlTest">
           <in>LedControlTest.ino</in>

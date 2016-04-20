@@ -1,7 +1,7 @@
 import cc.arduino.*;
 import org.firmata.*;
 
-  /*
+/*
  * Oscilloscope
  * Gives a visual rendering of analog pin 0 in realtime.
  * 
@@ -22,16 +22,15 @@ import org.firmata.*;
  * 
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ */
 import processing.serial.*;
 
-Serial port;  // Create object from Serial class
-int val;      // Data received from the serial port
+Serial port; // Create object from Serial class
+int val; // Data received from the serial port
 int[] values;
 float zoom;
 
-void setup() 
-{
+void setup() {
   size(1024, 1023);
   // Open the port that the board is connected to and use the same speed (9600 bps)
   port = new Serial(this, Serial.list()[0], 115200);
@@ -41,7 +40,7 @@ void setup()
 }
 
 int getY(int val) {
-  return (int)(height - val / 1023.0f * (height - 1));
+  return (int) (height - val / 1023.0f * (height - 1));
 }
 
 int getValue() {
@@ -51,27 +50,27 @@ int getValue() {
       value = (port.read() << 8) | (port.read());
     }
   }
-  return value +300;
+  return value + 300;
 }
 
 void pushValue(int value) {
-  for (int i=0; i<width-1; i++)
-    values[i] = values[i+1];
-  values[width-1] = value;
+  for (int i = 0; i < width - 1; i++)
+    values[i] = values[i + 1];
+  values[width - 1] = value;
 }
 
 void drawLines() {
   stroke(255);
-  
+
   int displayWidth = (int) (width / zoom);
-  
+
   int k = values.length - displayWidth;
-  
+
   int x0 = 0;
   int y0 = getY(values[k]);
-  for (int i=1; i<displayWidth; i++) {
+  for (int i = 1; i < displayWidth; i++) {
     k++;
-    int x1 = (int) (i * (width-1) / (displayWidth-1));
+    int x1 = (int) (i * (width - 1) / (displayWidth - 1));
     int y1 = getY(values[k]);
     line(x0, y0, x1, y1);
     x0 = x1;
@@ -81,7 +80,7 @@ void drawLines() {
 
 void drawGrid() {
   stroke(255, 0, 0);
-  line(0, height/2, width, height/2);
+  line(0, height / 2, width, height / 2);
 }
 
 void keyReleased() {
@@ -89,7 +88,7 @@ void keyReleased() {
     case '+':
       zoom *= 2.0f;
       println(zoom);
-      if ( (int) (width / zoom) <= 1 )
+      if ((int) (width / zoom) <= 1)
         zoom /= 2.0f;
       break;
     case '-':
@@ -100,8 +99,7 @@ void keyReleased() {
   }
 }
 
-void draw()
-{
+void draw() {
   background(0);
   drawGrid();
   val = getValue();
