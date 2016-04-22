@@ -57,36 +57,60 @@ void loop() {
   
   //getSensorsValue();
   
-  int sensor1 = analogRead(SENSOR1);
+  int param1 = map(analogRead(SENSOR4), 0, 1053, 500, 3);
+  int param2 = map(analogRead(SENSOR5), 0, 1053, 30, 1);
   
-  if (sensor1 < 80){
+  int sensor1 = analogRead(SENSOR1);
+  int sensor2 = analogRead(SENSOR2);
+  
+  if (sensor1 < param1){
       sensor1 = 0;
   } else {
     sensor1 = 1053 ;
   }
   
-  if (value1 - sensor1 > 5){
-    value1 -= 5;  
+  if (sensor2 < param1){
+      sensor2 = 0;
+  } else {
+    sensor2 = 1053 ;
+  }
+  
+  if (value1 - sensor1 > param2){
+    value1 -= param2;  
   } else {
     value1 = sensor1;  
   }
   
-  setLevel(strip1.Color(map(value1, 0, 1053, 0, 255), 0, 255 - map(value1, 0, 1053, 0, 255)), value1, strip1);
+  if (value2 - sensor2 > param2){
+    value2 -= param2;  
+  } else {
+    value2 = sensor2;  
+  }
+  
+  setLevel(value1, value2);
   
 }
  
-static void setLevel(uint32_t c, int value, Adafruit_NeoPixel strip) {
+static void setLevel(int value, int value2) {
 
-  for(uint16_t i=0; i<strip.numPixels()+4; i++) {
-      strip.setPixelColor(i  , strip.Color(0, 0, 0)); // Draw new pixel
+  for(uint16_t i=0; i<strip1.numPixels()+4; i++) {
+      strip1.setPixelColor(i  , strip1.Color(0, 0, 0)); // Draw new pixel
   }
   
-  int maxLed = map(value,-1, 1053,  0, strip.numPixels()+2);
+  uint32_t c1 = strip1.Color(0, map(value, 0, 1053, 0, 255), map(value, 0, 1053, 0, 255)); 
+  uint32_t c2 = strip1.Color(0, map(value2, 0, 1053, 0, 255), map(value2, 0, 1053, 0, 255)); 
+    
+  int maxLed = strip1.numPixels(); // map(value,-1, 1053,  0, strip1.numPixels()+2);
   
-  for(uint16_t i=0; i<maxLed; i++) {  
-      strip.setPixelColor(i  , c); // Draw new pixel
+  for(uint16_t i=0; i<maxLed; i++) { 
+   if (i < 15){
+     
+      strip1.setPixelColor(i  , c1); // Draw new pixel
+      } else {
+        strip1.setPixelColor(i  , c2); // Draw new pixel
+        }
   }
   
-  strip.show();
+  strip1.show();
   
 }
