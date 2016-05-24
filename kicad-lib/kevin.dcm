@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP Trs_audio_input_3.5mm
+D Audio 1/8 trs input jack
+K audio input
+$ENDCMP
+#
+#End Doc Library
