@@ -1,0 +1,218 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:opa-audio-input-cache
+EELAYER 25 0
+EELAYER END
+$Descr USLetter 11000 8500
+encoding utf-8
+Sheet 1 1
+Title "Audio input with OPA2132"
+Date "2016-05-31"
+Rev ""
+Comp "Kevin Isabelle"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L TL072 U?
+U 1 1 574D0A2E
+P 5350 4300
+F 0 "U?" H 5300 4500 50  0000 L CNN
+F 1 "TL072" H 5300 4050 50  0000 L CNN
+F 2 "" H 5350 4300 50  0000 C CNN
+F 3 "" H 5350 4300 50  0000 C CNN
+	1    5350 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L +9V #PWR?
+U 1 1 574D0B0A
+P 5250 3950
+F 0 "#PWR?" H 5250 3800 50  0001 C CNN
+F 1 "+9V" H 5250 4090 50  0000 C CNN
+F 2 "" H 5250 3950 50  0000 C CNN
+F 3 "" H 5250 3950 50  0000 C CNN
+	1    5250 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L GNDREF #PWR?
+U 1 1 574D0B60
+P 5250 4700
+F 0 "#PWR?" H 5250 4450 50  0001 C CNN
+F 1 "GNDREF" H 5250 4550 50  0000 C CNN
+F 2 "" H 5250 4700 50  0000 C CNN
+F 3 "" H 5250 4700 50  0000 C CNN
+	1    5250 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L JACK_2P J?
+U 1 1 574D0BEA
+P 3800 4400
+F 0 "J?" H 3450 4200 50  0000 C CNN
+F 1 "JACK_2P" H 3650 4650 50  0000 C CNN
+F 2 "" H 3800 4400 50  0000 C CNN
+F 3 "" H 3800 4400 50  0000 C CNN
+	1    3800 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Earth #PWR?
+U 1 1 574D0CA4
+P 4350 3650
+F 0 "#PWR?" H 4350 3400 50  0001 C CNN
+F 1 "Earth" H 4350 3500 50  0001 C CNN
+F 2 "" H 4350 3650 50  0000 C CNN
+F 3 "" H 4350 3650 50  0000 C CNN
+	1    4350 3650
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5650 4300 5800 4300
+Wire Wire Line
+	5800 4300 6000 4300
+Text GLabel 6000 4300 2    60   Input ~ 0
+Output
+Wire Wire Line
+	5250 4000 5250 3950
+Wire Wire Line
+	5250 4600 5250 4700
+$Comp
+L C C?
+U 1 1 574D0EAD
+P 4500 4400
+F 0 "C?" H 4525 4500 50  0000 L CNN
+F 1 "0.1uf" H 4525 4300 50  0000 L CNN
+F 2 "" H 4538 4250 50  0000 C CNN
+F 3 "" H 4500 4400 50  0000 C CNN
+	1    4500 4400
+	0    1    1    0   
+$EndComp
+$Comp
+L CP1 C?
+U 1 1 574D0B78
+P 5250 5000
+F 0 "C?" H 5275 5100 50  0000 L CNN
+F 1 "10uf" H 5275 4900 50  0000 L CNN
+F 2 "" H 5250 5000 50  0000 C CNN
+F 3 "" H 5250 5000 50  0000 C CNN
+	1    5250 5000
+	0    1    1    0   
+$EndComp
+$Comp
+L R R?
+U 1 1 574D11D7
+P 5200 3650
+F 0 "R?" V 5300 3650 50  0000 C CNN
+F 1 "R" V 5200 3650 50  0000 C CNN
+F 2 "" V 5130 3650 50  0000 C CNN
+F 3 "" H 5200 3650 50  0000 C CNN
+	1    5200 3650
+	0    1    1    0   
+$EndComp
+$Comp
+L R R?
+U 1 1 574D1260
+P 4650 3650
+F 0 "R?" V 4730 3650 50  0000 C CNN
+F 1 "R" V 4650 3650 50  0000 C CNN
+F 2 "" V 4580 3650 50  0000 C CNN
+F 3 "" H 4650 3650 50  0000 C CNN
+	1    4650 3650
+	0    1    1    0   
+$EndComp
+$Comp
+L R R?
+U 1 1 574D12F3
+P 4850 5250
+F 0 "R?" V 4930 5250 50  0000 C CNN
+F 1 "R" V 4850 5250 50  0000 C CNN
+F 2 "" V 4780 5250 50  0000 C CNN
+F 3 "" H 4850 5250 50  0000 C CNN
+	1    4850 5250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4850 4200 5050 4200
+Wire Wire Line
+	4800 3650 4850 3650
+Wire Wire Line
+	4850 3650 5050 3650
+Wire Wire Line
+	5350 3650 5800 3650
+Wire Wire Line
+	5800 3650 5800 4300
+Wire Wire Line
+	5800 4300 5800 5000
+Connection ~ 5800 4300
+Wire Wire Line
+	5800 5000 5400 5000
+Wire Wire Line
+	5100 5000 4850 5000
+Wire Wire Line
+	4850 4400 4850 5000
+Wire Wire Line
+	4850 5000 4850 5100
+Wire Wire Line
+	4650 4400 4850 4400
+Wire Wire Line
+	4850 4400 5050 4400
+Connection ~ 4850 4400
+Connection ~ 4850 3650
+Connection ~ 4850 5000
+Wire Wire Line
+	4250 4400 4350 4400
+Wire Wire Line
+	4250 4250 4450 4250
+Wire Wire Line
+	4850 3650 4850 4200
+Wire Wire Line
+	4450 4250 4450 3650
+Wire Wire Line
+	4350 3650 4450 3650
+Wire Wire Line
+	4450 3650 4500 3650
+Connection ~ 4450 3650
+$Comp
+L Earth #PWR?
+U 1 1 574DB97A
+P 4850 5400
+F 0 "#PWR?" H 4850 5150 50  0001 C CNN
+F 1 "Earth" H 4850 5250 50  0001 C CNN
+F 2 "" H 4850 5400 50  0000 C CNN
+F 3 "" H 4850 5400 50  0000 C CNN
+	1    4850 5400
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
