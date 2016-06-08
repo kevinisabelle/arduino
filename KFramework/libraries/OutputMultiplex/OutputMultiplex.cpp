@@ -9,9 +9,9 @@ OutputMultiplex::OutputMultiplex(int pin1, int pin2, int pin3, int nbLeds)
 	_nbLeds = nbLeds;
 }
 
-void OutputMultiplex::setPercentValue(float percent){
+void OutputMultiplex::setPercentValue(int percent){
 	
-	if (percent > 100){ percent = 100; } 
+	if (percent > 99){ percent = 99; } 
 	if (percent < 0){ percent = 0; }  
 	
 	byte value =  (9 *percent) /100 ;

@@ -11,7 +11,7 @@ class OutputMultiplex
   public:
     OutputMultiplex(int pin1, int pin2, int pin3, int nbLeds);
 	void setup();
-	void setPercentValue(float percent);
+	void setPercentValue(int percent);
 	void setPattern(unsigned long pattern);
 	void setLedValue(int led, int value);
   private:
