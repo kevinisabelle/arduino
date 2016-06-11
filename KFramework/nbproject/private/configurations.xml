@@ -63,6 +63,58 @@
             <in>LedControl.h</in>
           </df>
         </df>
+        <df name="LiquidCrystal">
+          <df name="docs">
+            <df name="def">
+            </df>
+            <df name="html">
+              <df name="search">
+              </df>
+            </df>
+          </df>
+          <df name="examples">
+            <df name="HelloWorld_4bit">
+              <in>HelloWorld_4bit.pde</in>
+            </df>
+            <df name="HelloWorld_i2c">
+              <in>HelloWorld_i2c.pde</in>
+            </df>
+            <df name="HelloWorld_SR">
+              <in>HelloWorld_SR.pde</in>
+            </df>
+            <df name="i2cLCDextraIO">
+              <in>i2cLCDextraIO.pde</in>
+            </df>
+            <df name="i2cLCDextraIO_tempLeonardo">
+              <in>i2cLCDextraIO_tempLeonardo.ino</in>
+            </df>
+            <df name="LCDiSpeed">
+              <in>LCDiSpeed.pde</in>
+            </df>
+            <df name="performanceLCD">
+              <in>performanceLCD.pde</in>
+            </df>
+            <df name="SerialDisplay">
+              <in>SerialDisplay.pde</in>
+            </df>
+          </df>
+          <in>FastIO.cpp</in>
+          <in>FastIO.h</in>
+          <in>I2CIO.cpp</in>
+          <in>I2CIO.h</in>
+          <in>LCD.cpp</in>
+          <in>LCD.h</in>
+          <in>LiquidCrystal.cpp</in>
+          <in>LiquidCrystal.h</in>
+          <in>LiquidCrystal_I2C.cpp</in>
+          <in>LiquidCrystal_I2C.h</in>
+          <in>LiquidCrystal_SR.cpp</in>
+          <in>LiquidCrystal_SR.h</in>
+          <in>LiquidCrystal_SR2W.cpp</in>
+          <in>LiquidCrystal_SR2W.h</in>
+          <in>LiquidCrystal_SR3W.cpp</in>
+          <in>LiquidCrystal_SR3W.h</in>
+        </df>
         <df name="OutputMultiplex">
           <in>OutputMultiplex.cpp</in>
           <in>OutputMultiplex.h</in>
@@ -85,12 +137,16 @@
         </df>
       </df>
       <df name="projects">
+        <df name="ArduinoISP">
+          <in>ArduinoISP.ino</in>
+        </df>
         <df name="Arduinoscope">
           <df name="processing">
             <df name="processingCode">
               <df name="data">
                 <in>oscilloscope.c</in>
               </df>
+              <in>processingCode.pde</in>
             </df>
             <in>oscilloscope.c</in>
           </df>
@@ -101,16 +157,32 @@
           <in>DeskMultibandVUMeter.ino</in>
         </df>
         <df name="DeskStereoVUMeter">
-          <in>DesktopStereoVUMeter.ino</in>
+          <df name="DesktopStereoVUMeter">
+            <in>DesktopStereoVUMeter.ino</in>
+          </df>
+          <df name="exportTest2">
+          </df>
+          <df name="svg">
+          </df>
+          <in>DeskStereoVUMeter.ino</in>
         </df>
         <df name="DmxReceiver">
           <in>DmxReceiver.ino</in>
+        </df>
+        <df name="EncoderAndLCDI2C">
+          <in>EncoderAndLCDI2C.ino</in>
+        </df>
+        <df name="I2C_LCD01">
+          <in>I2C_LCD01.ino</in>
         </df>
         <df name="LedControlTest">
           <in>LedControlTest.ino</in>
         </df>
         <df name="Mp3Doorbell">
           <in>Mp3Doorbell.ino</in>
+        </df>
+        <df name="MSGEQ7">
+          <in>MSGEQ7.ino</in>
         </df>
         <df name="PiezoDrumLED">
           <in>PiezoDrumLED.ino</in>

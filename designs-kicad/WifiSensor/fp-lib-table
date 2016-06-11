@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name ESP8266)(type KiCad)(uri C:\Dev\projects\ArduinoGit\kicad-lib\esp\ESP8266.pretty)(options "")(descr ""))
+  (lib (name arduino_shields)(type Legacy)(uri C:\Dev\projects\ArduinoGit\kicad-lib\Arduino_Shield_Modules_for_KiCad_V3\arduino_shields.mod)(options "")(descr ""))
+)
