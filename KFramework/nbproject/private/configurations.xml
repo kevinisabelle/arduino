@@ -46,6 +46,18 @@
             <in>DMXSerial.h</in>
           </df>
         </df>
+        <df name="DmxSimple">
+          <df name="examples">
+            <df name="FadeUp">
+              <in>FadeUp.pde</in>
+            </df>
+            <df name="SerialToDmx">
+              <in>SerialToDmx.pde</in>
+            </df>
+          </df>
+          <in>DmxSimple.cpp</in>
+          <in>DmxSimple.h</in>
+        </df>
         <df name="LedControl">
           <df name="examples">
             <df name="LCDemo7Segment">
