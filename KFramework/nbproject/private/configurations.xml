@@ -196,6 +196,9 @@
         <df name="MSGEQ7">
           <in>MSGEQ7.ino</in>
         </df>
+        <df name="MSGEQ7toLCD">
+          <in>MSGEQ7toLCD.ino</in>
+        </df>
         <df name="PiezoDrumLED">
           <in>PiezoDrumLED.ino</in>
         </df>
