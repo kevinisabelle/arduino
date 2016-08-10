@@ -1,0 +1,7 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MAX485
+D MAX485 IC
+$ENDCMP
+#
+#End Doc Library
