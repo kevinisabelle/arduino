@@ -7,37 +7,75 @@ int strobePin = 2; // strobe is attached to digital pin 2
 int resetPin = 3; // reset is attached to digital pin 3
 int spectrumValue[7]; // to hold a2d values
 
+int lightPins[] = {12, 11, 10, 5, 6, 8, 9};
+
 void setup() {
 
-  lcd.begin(16, 2); 
+  for (int i = 0; i < 7; i++) {
+    //pinMode(lightPins[i], OUTPUT);
+    analogWrite(lightPins[i], 1023);
+    delay(200);
+    analogWrite(lightPins[i], 0);
+  }
+
+
+
+  lcd.begin(16, 2);
+
+
 
   for (int i = 0; i < 3; i++) {
     lcd.backlight();
-    delay(100);
+    delay(50);
     lcd.noBacklight();
-    delay(250);
+    delay(100);
   }
   lcd.backlight();
 
   setupMSGEQ7();
 
   writeLCD("Kevin Isabelle", "Electronics");
-  delay(200);
+  delay(500);
+
+  writeLCD("Kevin Isabelle", "Stereo Castle");
+  delay(500);
 
   lcd.clear();
 }
+
+long counter = 0;
 
 void loop() {
   {
 
     loopMSGEQ7();
+    
+    if (millis() % 10 == 0){
+      printValueToLCD();
+    }
 
-    printValueToLCD();
+    
+    outputValuesToLights();
 
-    delay(25);
+    //delay(25);
 
   }
 
+}
+
+void outputValuesToLights() {
+
+  for (int i = 0; i < 7; i++) {
+    //pinMode(lightPins[i], OUTPUT);
+    
+    if (true){
+      analogWrite(lightPins[i], spectrumValue[i] > 350 ? 255 : 0);
+    } else {
+    
+    analogWrite(lightPins[i], map(spectrumValue[i], 0, 1023, 0, 255));
+    }
+
+  }
 }
 
 void printValueToLCD() {
@@ -48,20 +86,16 @@ void printValueToLCD() {
   for (int i = 0; i < 4; i++) {
 
     char buf[5] = "    ";
-    char buf2[5] = "    ";
-    itoa(spectrumValue[i], buf, 10);
-    itoa(spectrumValue[i], buf2, 10);
+    itoa(map(spectrumValue[i], 0, 1023, 0, 10), buf, 10);
 
     finalString += buf;
     finalString += "  ";
   }
-  
+
   for (int i = 4; i < 7; i++) {
 
     char buf[5] = "    ";
-    char buf2[5] = "    ";
-    itoa(spectrumValue[i], buf, 10);
-    itoa(spectrumValue[i], buf2, 10);
+    itoa(map(spectrumValue[i], 0, 1023, 0, 10), buf, 10);
 
     finalString2 += buf;
     finalString2 += "  ";
@@ -69,10 +103,10 @@ void printValueToLCD() {
 
   char buffinal[16] = "               ";
   finalString.toCharArray(buffinal, 16);
-  
+
   char buffinal2[16] = "               ";
   finalString2.toCharArray(buffinal2, 16);
-  
+
   writeLCD(buffinal, buffinal2);
 
 }
@@ -102,13 +136,18 @@ void loopMSGEQ7() {
   digitalWrite(resetPin, LOW);
 
   digitalWrite(strobePin, HIGH);
-  
+
   delayMicroseconds(72);
-  
+
   for (int i = 0; i < 7; i++) {
     digitalWrite(strobePin, LOW);
     delayMicroseconds(36); // to allow the output to settle
-    spectrumValue[i] = map(analogRead(analogPin), 0, 1023, 0, 10);
+    spectrumValue[i] = analogRead(analogPin);
+
+    if (spectrumValue[i] < 80) {
+      spectrumValue[i] = 0;
+    }
+
     digitalWrite(strobePin, HIGH);
     delayMicroseconds(30);
   }
